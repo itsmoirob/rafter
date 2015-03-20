@@ -1,4 +1,10 @@
+body {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 
+
+}
 
 #searchBox {
     padding:1.5rem;
@@ -20,8 +26,4 @@
     margin:0 1rem 1rem;
     border-radius:3px;
     text-align: left
-}
-
-a.surveyResults {
-    .cursor: pointer;
 }
