@@ -1,4 +1,4 @@
-angular.module('kent', [
+angular.module('rafter', [
 
 ])
     .controller('MainCtrl', function ($scope) {
