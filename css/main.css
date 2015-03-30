@@ -2,52 +2,5 @@ body {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #54bb87;
-
-
-}
-
-#searchBox {
-    padding:1.5rem;
-    margin:0 1rem 1rem;
-    
-}
-
-input[type="text"] {
-    display: block;
-    padding: 10px;
-    background-color: #8bd1ad;
-    border-radius:50px;
-    padding:1.5rem;
-    margin:0 1rem 1rem;
-    box-shadow: none;
-    border:3px #378b61 solid;
-}
-
-#resultsBox {
-    margin:0 1rem 1rem;
-    background-color: #54bb87;
-    text-align: center;
-    padding-bottom: 30px
-}
-
-#resultsBox .surveyResults {
-    padding:1.5rem;
-    box-shadow:0 1px 2px #aaa;
-    background: #54bb87;
-    margin:0 1rem 1rem;
-    border-radius:7px;
-    text-align: left;
-    border: 3px bisque solid;
-}
-
-::-webkit-input-placeholder { /* WebKit browsers */
-    color: white;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: white;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-   color: white;
+    background-color: #fcfcfc;
 }

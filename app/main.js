@@ -1,7 +1,13 @@
 angular.module('rafter', [
 
 ])
-    .controller('MainCtrl', function ($scope) {
+    .controller('MainCtrl',  ['$scope', '$http', '$log', function ($scope, $http, $log) {
+
+    /*get json data*/
+	$http.get('php/index.php').success(function(data) {
+		$scope.phpData = data;
+		console.log('php: ', $scope.phpData);
+	});
     
     $scope.surveyData = [
         {"id":0,"project_id":"10-00012","project_name":"The School","score":3,"max":7, "project_manager": "Jo Smith","roof_team":"Bob Builder"},
@@ -18,6 +24,4 @@ angular.module('rafter', [
     
     $scope.setCurrentID = setCurrentID;
 
-})
-
-;
+}]);
