@@ -15,39 +15,37 @@
     </head>
     <body>
         <div ng-controller="MainCtrl">
-               <div id="searchBox">
-                <h2>Search for a survey.</h2>
-                <p>Use project id/name, sales, roofing team.</p>
-                <!--Search for something-->
-                <div class="row">
-                    <form class="col s12">
-                        <div class="input-field col s6">
-                            <i class="mdi-action-search prefix"></i>
-                            <input id="icon_prefix" type="text" class="validate" ng-model="searchText">
-                            <label for="icon_prefix">Search for something</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <div><h1>Welcome to Rafter. A place to search audits</h1></div>
 
-               <div id="resultsBox" ng-show="searchText">
-                <h2>Select an item below.</h2>                
-                    <div ng-repeat="survey in phpData | filter:searchText">
-                      <!--Cards for viewing search results-->
-                      <div class="row">
-                          <div class="col s12 m12">
-                              <div class="card blue lighten-1">
-                                  <div class="card-content white-text">
-                                      <span class="card-title">{{survey.customer_name}} {{survey.project_id}}</span>
-                                      <p>{{survey.customer_address}} {{survey.project_manager}} {{survey.project_team}}</p>
-                                  </div>
-                                  <div class="card-action">
-                                      <a ng-click="setCurrentID(survey)" >View this report</a>
-                                  </div>
+            <!--Search for something-->
+            <div class="row">
+                <form class="col s12">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-search prefix"></i>
+                        <input id="icon_prefix" type="text" class="validate" ng-model="searchText">
+                        <label for="icon_prefix">Search for project id/name, sales, roofing team</label>
+                    </div>
+                </form>
+            </div>
+           <div id="resultsBox" ng-show="searchText">
+            <h2>Select an item below.</h2>
+                <div ng-repeat="survey in phpData | filter:searchText">
+
+                  <!--Cards for viewing search results-->
+                  <div class="row">
+                      <div class="col s12 m12">
+                          <div class="card blue lighten-1">
+                              <div class="card-content white-text">
+                                  <span class="card-title">{{survey.customer_name}} {{survey.project_id}}</span>
+                                  <p>{{survey.customer_address}} {{survey.project_manager}} {{survey.project_team}}</p>
+                              </div>
+                              <div class="card-action">
+                                  <a ng-click="setCurrentID(survey)" >View this report</a>
                               </div>
                           </div>
-                        </div>
-                   </div>
+                      </div>
+                    </div>
+               </div>
             </div>
             <!--Shows the current selected item-->
             <hr/>
@@ -58,15 +56,15 @@
                     </li>
                 </ul>
             </div>
-            <div>
+                <div>
                 <h1>Test</h1>
                 <p>{{phpData}}</p>
             </div>
         </div>
-         <!--Import jQuery before materialize.js-->
-         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-         <script type="text/javascript" src="js/materialize.min.js"></script>
-         <script src="app/init.js"></script>
-         <script src="app/main.js"></script>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script src="js/init.js"></script>
+        <script src="app/main.js"></script>
     </body>
 </html>
