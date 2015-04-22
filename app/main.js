@@ -1,5 +1,6 @@
 angular.module('rafter', [
   'searchProjects',
+  'resultProjects',
   'ui.router',
   'ngAnimate'
 ])
