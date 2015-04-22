@@ -1,0 +1,45 @@
+<!--Search for something-->
+<div id="field">
+  <div>
+    <form>
+      <div class="input-field">
+        <i class="mdi-action-search prefix"></i>
+        <input id="icon_prefix" type="text" class="validate" ng-model="searchText">
+        <label for="icon_prefix">Search for project id/name, sales, roofing team</label>
+      </div>
+    </form>
+  </div>
+  <div class="row" id="resultsBox" ng-show="searchText">
+    <h5>Select an item below.</h2>
+      <div ng-repeat="survey in reports | filter:searchText" class="animate-repeat">
+
+        <!--Cards for viewing search results-->
+        <div>
+          <div class="card blue lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{survey.customer_name}} {{survey.project_id}}</span>
+              <p>{{survey.customer_address}} {{survey.project_manager}} {{survey.project_team}}</p>
+            </div>
+            <div class="card-action">
+              <a onmouseover="" style="cursor: pointer;" ng-click="setCurrentID(survey)" class="waves-effect waves-yellow" >View summary</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Shows the current selected item-->
+    <div>
+      <hr/>
+      <div class="card white main-result-card" ng-show="currentID">
+        <div class="card-content">
+          <ul>
+            <li ng-repeat="(key, value) in currentID">
+              {{key}} {{value}}
+            </li>
+          </ul>
+          <a class="waves-effect waves-light btn-large blue">More detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

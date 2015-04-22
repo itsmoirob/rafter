@@ -1,43 +1,17 @@
 angular.module('rafter', [
-
+  'searchProjects',
+  'ui.router',
+  'ngAnimate'
 ])
-    .service('RafterModel', function($http){
-      var model = this,
-          URLS = {
-            FETCH:'php/index.php'
-          },
-          reports;
+  .config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('rafter', {
+        url:'',
+        abstract: true
+      })
+      ;
 
-          function extract(result){
-            return result.data;
-          }
+      $urlRouterProvider.otherwise('/');
+  })
 
-          function cacheReports(result) {
-            reports = extract(result);
-            return reports;
-          }
-
-          model.getReports = function() {
-            return $http.get(URLS.FETCH).then(cacheReports);
-          };
-
-    })
-
-    .controller('MainCtrl',  function ($scope, $log, RafterModel) {
-
-      var MainCtrl = this;
-
-      MainCtrl.reports = RafterModel.getReports();
-
-      function setCurrentID(survey){
-        $scope.currentID = survey;
-        }
-
-      RafterModel.getReports()
-        .then(function(result){
-        $scope.reports = result;
-      });
-      
-      $scope.currentID = null;
-      $scope.setCurrentID = setCurrentID;
-});
+;
