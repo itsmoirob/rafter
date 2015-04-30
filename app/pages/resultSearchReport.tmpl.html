@@ -84,15 +84,21 @@
       </ul>
     </div>
   </div>
+  <div class="col s6">
+    <highchart id="chart1" config="descriptionChartConfig" class="span10"></highchart>
+  </div>
+  <div class="col s6">
+    <highchart id="chart1" config="workmanshipChartConfig" class="span10"></highchart>
+  </div>
+  <div class="col s6">
+    <highchart id="chart1" config="pvChartConfig" class="span10"></highchart>
+  </div>
+  <div class="col s6">
+    <highchart id="chart1" config="salesChartConfig" class="span10"></highchart>
+  </div>
 </div>
 
 
-
-<div class="row">
-  <highchart id="chart1" config="chartConfig" class="span10"></highchart>
-</div>
-{{currentResultReport.workmanship }}
-<hr />
-myChartData {{ myChartData }}
 <br />
-score {{ angularScore }}
+{{currentResultReport }}
+<hr />
