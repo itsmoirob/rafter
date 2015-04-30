@@ -17,12 +17,10 @@ $id = $_GET['id'];
 //create json
 $data = [];
 
-
-$data['score'] = [];
 $query = mysqli_query($conn, "select subject_score
 from installation_subjects inner join subjects on installation_subjects.subject_id = subjects.subject_id where project_id = '$id' and subjects.subject_category_id = 1;");
 WHILE($r = mysqli_fetch_assoc($query)) {
-	$data['score'][] = $r;
+	$data[] = $r;
 };
 
 

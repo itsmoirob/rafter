@@ -40,8 +40,17 @@ angular.module('resultProjects', [
         }
       })
       .success(function (result,status) {
+
+        var score = [];
+        for (var i = 0; i < result.length; i++) {
+          score.push(result[i].subject_score);
+        }
+
+        $scope.angularScore = score;
         $scope.myChartData = result;
       });
+
+
 
     $scope.chartConfig = {
       options: {
