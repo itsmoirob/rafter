@@ -1,7 +1,8 @@
 angular.module('resultProjects', [
   'searchProjects',
   'ui.router',
-  'ngAnimate'
+  'ngAnimate',
+  'highcharts-ng'
 ])
 
 .config(function($stateProvider){
@@ -10,7 +11,7 @@ angular.module('resultProjects', [
     url:'/searchResult/:reportResult',
     views: {
       'searchReport@': {
-        templateUrl: 'app/pages/resultSeachReport.tmpl.html',
+        templateUrl: 'app/pages/resultSearchReport.tmpl.html',
         controller: 'resultCtrl'
       }
     }
@@ -18,36 +19,45 @@ angular.module('resultProjects', [
   ;
 })
 
-.service('RafterResult', function($http, $stateParams){
-  var model = this,
-      URLS = {
-        FETCH:'php/record.php?id'
-      },
-      reports;
-
-      function extract(result){
-        return result.data;
-      }
-
-      function cacheReports(result) {
-        reports = extract(result);
-        return reports;
-      }
-
-      model.getReports = function() {
-        return $http.get(URLS.FETCH,
-        {params: {id: $stateParams.reportResult}}).then(cacheReports);
-      };
-
-})
-.controller('resultCtrl', function($scope,$stateParams,RafterResult){
+.controller('resultCtrl', ['$scope', '$stateParams', '$http', function($scope,$stateParams,$http){
 
   $scope.currentResultName = $stateParams.reportResult;
 
-  RafterResult.getReports()
-    .then(function(result){
+  $http
+    .get('php/record.php', {
+      params: {
+        id: $stateParams.reportResult
+      }
+    })
+    .success(function (result,status) {
       $scope.currentResultReport = result;
     });
 
-})
+    $http
+      .get('php/data.php', {
+        params: {
+          id: $stateParams.reportResult
+        }
+      })
+      .success(function (result,status) {
+        $scope.myChartData = result;
+      });
+
+    $scope.chartConfig = {
+      options: {
+        chart: {
+          type: 'bar'
+        }
+      },
+      series: [{
+        data: [10, 15, 12, 8, 7]
+      }],
+      title: {
+        text: 'Hello'
+      },
+
+      loading: false
+    };
+
+}])
 ;

@@ -1,0 +1,96 @@
+<div id="field">
+  <div class="card blue lighten-1">
+    <div class="card-content white-text">
+      <span class="card-title">Evoenergy id: {{ currentResultReport.jobDetails[0].evoenergy_id  }}</span>
+      <ul class="collection">
+        <li class="collection-item blue">Name: {{ currentResultReport.jobDetails[0].customer_name  }}</li>
+        <li class="collection-item blue">Address: {{ currentResultReport.jobDetails[0].customer_address  }}</li>
+        <li class="collection-item blue">Date of audit: {{ currentResultReport.jobDetails[0].date_of_audit  }}</li>
+        <li class="collection-item blue">Pitch: {{ currentResultReport.jobDetails[0].pitch  }}°</li>
+        <li class="collection-item blue">Roof type (description): {{ currentResultReport.jobDetails[0].advisory_description_roof_type  }}</li>
+        <li class="collection-item blue">Roof material (description): {{ currentResultReport.jobDetails[0].advisory_description_roof_material  }}</li>
+      </ul>
+      <span class="card-title">Description</span>
+      <table >
+      	<thead>
+      	<tr>
+      		<th>Subject</th>
+      		<th>Score</th>
+      		<th>Any note</th>
+      	</tr>
+      	</thead>
+      	<tbody>
+      	<tr ng-repeat="each in currentResultReport.description">
+      		<td>{{ each.subject_name }}</td>
+      		<td>{{ each.subject_score }}</td>
+      		<td>{{ each.subject_note }}</td>
+      	</tr>
+      	</tbody>
+      </table>
+      <span class="card-title">Workmanship</span>
+      <table >
+        <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Score</th>
+          <th>Any note</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="each in currentResultReport.workmanship">
+          <td>{{ each.subject_name }}</td>
+          <td>{{ each.subject_score }}</td>
+          <td>{{ each.subject_note }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <span class="card-title">PV</span>
+      <table >
+        <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Score</th>
+          <th>Any note</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="each in currentResultReport.pv">
+          <td>{{ each.subject_name }}</td>
+          <td>{{ each.subject_score }}</td>
+          <td>{{ each.subject_note }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <span class="card-title">Sales</span>
+      <table >
+        <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Score</th>
+          <th>Any note</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="each in currentResultReport.sales">
+          <td>{{ each.subject_name }}</td>
+          <td>{{ each.subject_score }}</td>
+          <td>{{ each.subject_note }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <span class="card-title">Summary</span>
+      <ul class="collection">
+        <li class="collection-item blue">Note: {{ currentResultReport.jobDetails[0].advisory_note  }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <highchart id="chart1" config="chartConfig" class="span10"></highchart>
+</div>
+{{currentResultReport.workmanship }}
+<hr />
+{{ myChartData }}

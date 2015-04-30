@@ -10,7 +10,7 @@ angular.module('searchProjects', [
       views: {
         'searchReport@': {
           controller: 'MainCtrl',
-          templateUrl: 'app/pages/seachReport.tmpl.html'
+          templateUrl: 'app/pages/searchReport.tmpl.html'
         }
       }
     })
